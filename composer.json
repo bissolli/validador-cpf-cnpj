@@ -4,7 +4,6 @@
     "keywords": [ "cnpj", "cpf", "validador", "documento", "brasil"],
     "type": "library",
     "license": "MIT",
-    "minimum-stability": "stable",
     "homepage": "https://github.com/bissolli/validador-cpf-cnpj",
     "authors": [
         {
