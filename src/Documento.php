@@ -22,7 +22,7 @@ class Documento
 
         if (strlen($value) === 11)
             $this->obj = new CPF($value);
-        elseif (strlen($value) === 11)
+        else
             $this->obj = new CNPJ($value);
     }
 
