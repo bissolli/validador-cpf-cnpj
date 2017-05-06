@@ -2,11 +2,13 @@
 
 Classe em PHP para validação de CPF e CNPJ.
 
-## Instalação via [Composer](http://getcomposer.org)
 
+## Instalação
+Via [Composer](http://getcomposer.org)
 ```bash
 composer require bissolli/validador-cpf-cnpj
 ```
+
 
 ## Como utilizar
 
@@ -24,6 +26,7 @@ $document->isValid();
 $document->format();
 ```
 
+
 Exemplo de uso para validação e formatação de CNPJ:
 ```php
 // Não importa se já vem formatado ou não
@@ -37,6 +40,7 @@ $document->isValid();
 // ou false caso não seja um número válido
 $document->format();
 ```
+
 
 Exemplo de uso para validação e formatação de CNPJ ou CPF, já reconhecendo o tipo de documento baseado na quantidade de números:
 ```php
@@ -57,4 +61,3 @@ $document->format();
 ```
 
 Simples assim!
-
