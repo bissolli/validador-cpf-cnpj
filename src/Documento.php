@@ -58,4 +58,14 @@ class Documento
     {
         return $this->obj->format();
     }
+
+    /**
+     * Get the raw value
+     *
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->obj->getValue();
+    }
 }

@@ -103,4 +103,14 @@ class CNPJ
     {
         return 'CNPJ';
     }
+
+    /**
+     * Get the raw value
+     *
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->value;
+    }
 }

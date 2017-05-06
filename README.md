@@ -24,6 +24,10 @@ $document->isValid();
 // Retorna o número de CPF formatado (###.###.###-##)
 // ou false caso não seja um número válido
 $document->format();
+
+// Retorna o número de sem formatação alguma
+// ou false caso não seja um número válido
+$document->getValue();
 ```
 
 
@@ -39,6 +43,10 @@ $document->isValid();
 // Retorna o número de CNPJ formatado (##.###.###/####-##)
 // ou false caso não seja um número válido
 $document->format();
+
+// Retorna o número de sem formatação alguma
+// ou false caso não seja um número válido
+$document->getValue();
 ```
 
 
@@ -58,6 +66,10 @@ $document->isValid();
 // Retorna o número de formatado de acordo com tipo de documento informado
 // ou false caso não seja um número válido
 $document->format();
+
+// Retorna o número de sem formatação alguma
+// ou false caso não seja um número válido
+$document->getValue();
 ```
 
 Simples assim!
