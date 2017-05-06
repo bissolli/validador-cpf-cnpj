@@ -93,4 +93,14 @@ class CNPJ
 
         return $result;
     }
+
+    /**
+     * Get class name without namespace
+     *
+     * @return string
+     */
+    public function getClassName()
+    {
+        return 'CNPJ';
+    }
 }

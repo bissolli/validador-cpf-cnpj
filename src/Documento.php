@@ -12,7 +12,7 @@ class Documento
     public $obj;
 
     /**
-     * Create a new ValidaDocumento instance
+     * Create a new Documento instance
      *
      * @param string $value
      */
