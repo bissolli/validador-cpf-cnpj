@@ -33,7 +33,10 @@ class Documento
      */
     public function getType()
     {
-        return get_class($this->obj);
+        if ($this->isValid())
+            return $this->obj->getClassName();
+
+        return false;
     }
 
     /**
