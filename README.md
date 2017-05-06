@@ -1,4 +1,9 @@
-# Validador de CPF e CNPJ
+# Validador de CPF e CNPJ 
+
+[![Build Status](https://travis-ci.org/bissolli/validador-cpf-cnpj.svg?branch=master)](https://travis-ci.org/bissolli/validador-cpf-cnpj)
+[![Latest Stable Version](https://poser.pugx.org/bissolli/validador-cpf-cnpj/v/stable)](https://packagist.org/packages/bissolli/validador-cpf-cnpj)
+[![Total Downloads](https://poser.pugx.org/bissolli/validador-cpf-cnpj/downloads)](https://packagist.org/packages/bissolli/validador-cpf-cnpj)
+[![License](https://poser.pugx.org/bissolli/validador-cpf-cnpj/license)](https://packagist.org/packages/bissolli/validador-cpf-cnpj)
 
 Classe em PHP para validação de CPF e CNPJ.
 
