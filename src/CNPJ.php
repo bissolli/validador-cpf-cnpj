@@ -9,14 +9,14 @@ class CNPJ
      *
      * @var string
      */
-    public $value;
+    private $value;
 
     /**
      * Invalid numbers
      *
      * @var string
      */
-    public $blacklist = [
+    private $blacklist = [
         '00000000000000',
         '11111111111111',
         '22222222222222',
@@ -36,7 +36,7 @@ class CNPJ
      */
     public function __construct($value = null)
     {
-        $this->value = (string) preg_replace('/[^0-9]/', '', $value);
+        if ($value) $this->setValue($value);
     }
 
     /**
@@ -112,5 +112,16 @@ class CNPJ
     public function getValue()
     {
         return $this->value;
+    }
+
+    /**
+     * Set the clean value
+     *
+     * @return self
+     */
+    public function setValue($value)
+    {
+        $this->value = (string) preg_replace('/[^0-9]/', '', $value);
+        return $this;
     }
 }
