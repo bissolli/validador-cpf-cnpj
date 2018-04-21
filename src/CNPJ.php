@@ -2,21 +2,14 @@
 
 namespace Bissolli\ValidadorCpfCnpj;
 
-class CNPJ
+class CNPJ extends Abstract
 {
-    /**
-     * Value to be validated
-     *
-     * @var string
-     */
-    private $value;
-
     /**
      * Invalid numbers
      *
      * @var string
      */
-    private $blacklist = [
+    protected $blacklist = [
         '00000000000000',
         '11111111111111',
         '22222222222222',
@@ -28,16 +21,6 @@ class CNPJ
         '88888888888888',
         '99999999999999'
     ];
-
-    /**
-     * Create a new ValidaDocumento instance
-     *
-     * @param string $value
-     */
-    public function __construct($value = null)
-    {
-        if ($value) $this->setValue($value);
-    }
 
     /**
      * Check if it is a valid CNPJ number
@@ -92,36 +75,5 @@ class CNPJ
         $result .= substr($this->value, 12, 2) . '';
 
         return $result;
-    }
-
-    /**
-     * Get class name without namespace
-     *
-     * @return string
-     */
-    public function getClassName()
-    {
-        return 'CNPJ';
-    }
-
-    /**
-     * Get the raw value
-     *
-     * @return string
-     */
-    public function getValue()
-    {
-        return $this->value;
-    }
-
-    /**
-     * Set the clean value
-     *
-     * @return self
-     */
-    public function setValue($value)
-    {
-        $this->value = (string) preg_replace('/[^0-9]/', '', $value);
-        return $this;
     }
 }
