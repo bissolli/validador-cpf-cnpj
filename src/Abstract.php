@@ -2,7 +2,7 @@
 
 namespace Bissolli\ValidadorCpfCnpj;
 
-class Abstract
+abstract class Abstract
 {
     /**
      * Value to be validated
