@@ -67,5 +67,7 @@ class Documento extends Abstract
             $this->obj = new CPF($value);
         else
             $this->obj = new CNPJ($value);
+        
+        return $this;
     }
 }
