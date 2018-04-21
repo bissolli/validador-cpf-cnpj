@@ -2,7 +2,7 @@
 
 namespace Bissolli\ValidadorCpfCnpj;
 
-class Documento
+class Documento extends Abstract
 {
     /**
      * Value to be validated
@@ -10,21 +10,6 @@ class Documento
      * @var string
      */
     public $obj;
-
-    /**
-     * Create a new Documento instance
-     *
-     * @param string $value
-     */
-    public function __construct($value = null)
-    {
-        $value = (string) preg_replace('/[^0-9]/', '', $value);
-
-        if (strlen($value) === 11)
-            $this->obj = new CPF($value);
-        else
-            $this->obj = new CNPJ($value);
-    }
 
     /**
      * Get document type
@@ -67,5 +52,20 @@ class Documento
     public function getValue()
     {
         return $this->obj->getValue();
+    }
+
+    /**
+     * Set the clean value
+     *
+     * @return self
+     */
+    public function setValue($value)
+    {
+        $value = (string) preg_replace('/[^0-9]/', '', $value);
+
+        if (strlen($value) === 11)
+            $this->obj = new CPF($value);
+        else
+            $this->obj = new CNPJ($value);
     }
 }
