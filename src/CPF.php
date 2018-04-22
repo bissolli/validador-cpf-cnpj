@@ -2,21 +2,14 @@
 
 namespace Bissolli\ValidadorCpfCnpj;
 
-class CPF
+class CPF extends DocumentoAbstract
 {
-    /**
-     * Value to be validated
-     *
-     * @var string
-     */
-    public $value;
-
     /**
      * Invalid numbers
      *
      * @var string
      */
-    private $blacklist = [
+    protected $blacklist = [
         '00000000000',
         '11111111111',
         '22222222222',
@@ -28,16 +21,6 @@ class CPF
         '88888888888',
         '99999999999'
     ];
-
-    /**
-     * Create a new ValidaDocumento instance
-     *
-     * @param string $value
-     */
-    public function __construct($value = null)
-    {
-        $this->value = (string) preg_replace('/[^0-9]/', '', $value);
-    }
 
     /**
      * Check if it is a valid CPF number
@@ -89,25 +72,5 @@ class CPF
         $result .= substr($this->value, 9, 2) . '';
 
         return $result;
-    }
-
-    /**
-     * Get class name without namespace
-     *
-     * @return string
-     */
-    public function getClassName()
-    {
-        return 'CPF';
-    }
-
-    /**
-     * Get the raw value
-     *
-     * @return string
-     */
-    public function getValue()
-    {
-        return $this->value;
     }
 }
