@@ -1,7 +1,7 @@
 {
     "name": "bissolli/validador-cpf-cnpj",
     "description": "Classe em PHP para validação de CPF e CNPJ.",
-    "keywords": [ "cnpj", "cpf", "validador", "documento", "brasil"],
+    "keywords": [ "cnpj", "cpf", "validador", "documento", "brasil", "laravel"],
     "type": "library",
     "license": "MIT",
     "homepage": "https://github.com/bissolli/validador-cpf-cnpj",
