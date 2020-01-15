@@ -39,22 +39,22 @@ class CNPJ extends DocumentoAbstract
 
         // Validate first check digit
         for ($i = 0, $j = 5, $sum = 0; $i < 12; $i++) {
-            $sum += $this->value{$i} * $j;
+            $sum += $this->value[$i] * $j;
             $j = ($j == 2) ? 9 : $j - 1;
         }
         $result = $sum % 11;
 
-        if ($this->value{12} != ($result < 2 ? 0 : 11 - $result))
+        if ($this->value[12] != ($result < 2 ? 0 : 11 - $result))
             return false;
 
         // Validate second check digit
         for ($i = 0, $j = 6, $sum = 0; $i < 13; $i++) {
-            $sum += $this->value{$i} * $j;
+            $sum += $this->value[$i] * $j;
             $j = ($j == 2) ? 9 : $j - 1;
         }
         $result = $sum % 11;
 
-        return $this->value{13} == ($result < 2 ? 0 : 11 - $result);
+        return $this->value[13] == ($result < 2 ? 0 : 11 - $result);
     }
 
     /**

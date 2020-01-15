@@ -39,20 +39,20 @@ class CPF extends DocumentoAbstract
 
         // Validate first check digit
         for ($i = 0, $j = 10, $sum = 0; $i < 9; $i++, $j--)
-            $sum += $this->value{$i} * $j;
+            $sum += $this->value[$i] * $j;
 
         $result = $sum % 11;
 
-        if ($this->value{9} != ($result < 2 ? 0 : 11 - $result))
+        if ($this->value[9] != ($result < 2 ? 0 : 11 - $result))
             return false;
 
         // Validate first second digit
         for ($i = 0, $j = 11, $sum = 0; $i < 10; $i++, $j--)
-            $sum += $this->value{$i} * $j;
+            $sum += $this->value[$i] * $j;
 
         $result = $sum % 11;
 
-        return $this->value{10} == ($result < 2 ? 0 : 11 - $result);
+        return $this->value[10] == ($result < 2 ? 0 : 11 - $result);
     }
 
     /**
