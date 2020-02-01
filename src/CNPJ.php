@@ -30,12 +30,14 @@ class CNPJ extends DocumentoAbstract
     public function isValid()
     {
         // Check the size
-        if (strlen($this->value) != 14)
+        if (strlen($this->value) != 14) {
             return false;
+        }
 
         // Check if it is blacklisted
-        if (in_array($this->value, $this->blacklist))
+        if (in_array($this->value, $this->blacklist)) {
             return false;
+        }
 
         // Validate first check digit
         for ($i = 0, $j = 5, $sum = 0; $i < 12; $i++) {
@@ -44,8 +46,10 @@ class CNPJ extends DocumentoAbstract
         }
         $result = $sum % 11;
 
-        if ($this->value{12} != ($result < 2 ? 0 : 11 - $result))
+        
+        if ($this->value{12} != ($result < 2 ? 0 : 11 - $result)) {
             return false;
+        }
 
         // Validate second check digit
         for ($i = 0, $j = 6, $sum = 0; $i < 13; $i++) {
@@ -53,6 +57,7 @@ class CNPJ extends DocumentoAbstract
             $j = ($j == 2) ? 9 : $j - 1;
         }
         $result = $sum % 11;
+        
 
         return $this->value{13} == ($result < 2 ? 0 : 11 - $result);
     }
@@ -64,8 +69,9 @@ class CNPJ extends DocumentoAbstract
      */
     public function format()
     {
-        if (!$this->isValid())
+        if (!$this->isValid()) {
             return false;
+        }
 
         // Format ##.###.###/####-##
         $result  = substr($this->value, 0, 2) . '.';
