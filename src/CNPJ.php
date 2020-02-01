@@ -47,8 +47,9 @@ class CNPJ extends DocumentoAbstract
         $result = $sum % 11;
 
         
-        if ($this->value{12} != ($result < 2 ? 0 : 11 - $result))
+        if ($this->value[12] != ($result < 2 ? 0 : 11 - $result)) {
             return false;
+        }
 
         // Validate second check digit
         for ($i = 0, $j = 6, $sum = 0; $i < 13; $i++) {
