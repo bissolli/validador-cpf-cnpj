@@ -1533,5 +1533,5 @@
         "php": "^7.2"
     },
     "platform-dev": [],
-    "version": "1.2.1"
+    "version": "1.2.2"
 }
