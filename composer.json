@@ -1,7 +1,14 @@
 {
     "name": "bissolli/validador-cpf-cnpj",
     "description": "Classe em PHP para validação de CPF e CNPJ.",
-    "keywords": [ "cnpj", "cpf", "validador", "documento", "brasil", "laravel"],
+    "keywords": [
+        "cnpj",
+        "cpf",
+        "validador",
+        "documento",
+        "brasil",
+        "laravel"
+    ],
     "type": "library",
     "license": "MIT",
     "homepage": "https://github.com/bissolli/validador-cpf-cnpj",
@@ -12,10 +19,10 @@
         }
     ],
     "require": {
-        "php": ">=5.4"
+        "php": "^7.2"
     },
     "require-dev": {
-        "phpunit/phpunit": "~4.0"
+        "phpunit/phpunit": "^8.5"
     },
     "autoload": {
         "psr-4": {
@@ -24,10 +31,15 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Bissolli\\ValidadorCpfCnpj\\Tests\\": "tests/"
+            "Bissolli\\ValidadorCpfCnpj\\Test\\": "tests/"
         }
     },
-    "branch-alias": {
-        "dev-master": "1.0"
+    "config": {
+        "sort-packages": true
+    },
+    "scripts": {
+        "test": [
+            "vendor/bin/phpunit"
+        ]
     }
 }

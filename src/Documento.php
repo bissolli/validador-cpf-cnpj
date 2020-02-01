@@ -13,15 +13,10 @@ class Documento extends DocumentoAbstract
 
     /**
      * Get document type
-     *
-     * @return bool|string
      */
-    public function getType()
+    public function getType(): String
     {
-        if ($this->isValid())
-            return $this->obj->getClassName();
-
-        return false;
+        return $this->obj->getClassName();
     }
 
     /**
@@ -63,10 +58,11 @@ class Documento extends DocumentoAbstract
     {
         $value = (string) preg_replace('/[^0-9]/', '', $value);
 
-        if (strlen($value) === 11)
+        if (strlen($value) === 11) {
             $this->obj = new CPF($value);
-        else
+        } else {
             $this->obj = new CNPJ($value);
+        }
 
         return $this;
     }
