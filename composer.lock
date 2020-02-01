@@ -1532,5 +1532,6 @@
     "platform": {
         "php": "^7.2"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "version": "1.2.1"
 }
