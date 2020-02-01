@@ -78,3 +78,9 @@ $document->getValue();
 ```
 
 Simples assim!
+
+## Contribuição
+
+- Qualquer contribuição será bem vinda através de Pull Request;
+- Usamos [Conventional Commits](https://www.conventionalcommits.org/) para manter o projeto organizado;
+- [Aqui vai um artigo simples](https://medium.com/@klauskpm/how-to-create-good-commit-messages-67943d30cced) explicando como utilizar commitizen para gerar suas mensagens de commit de forma correta e simplificada;
