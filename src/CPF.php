@@ -30,29 +30,34 @@ class CPF extends DocumentoAbstract
     public function isValid()
     {
         // Check the size
-        if (strlen($this->value) != 11)
+        if (strlen($this->value) != 11) {
             return false;
+        }
 
         // Check if it is blacklisted
-        if (in_array($this->value, $this->blacklist))
+        if (in_array($this->value, $this->blacklist)) {
             return false;
+        }
 
         // Validate first check digit
-        for ($i = 0, $j = 10, $sum = 0; $i < 9; $i++, $j--)
-            $sum += $this->value{$i} * $j;
+        for ($i = 0, $j = 10, $sum = 0; $i < 9; $i++, $j--) {
+            $sum += $this->value[$i] * $j;
+        }
 
         $result = $sum % 11;
 
-        if ($this->value{9} != ($result < 2 ? 0 : 11 - $result))
+        if ($this->value[9] != ($result < 2 ? 0 : 11 - $result)) {
             return false;
+        }
 
         // Validate first second digit
-        for ($i = 0, $j = 11, $sum = 0; $i < 10; $i++, $j--)
-            $sum += $this->value{$i} * $j;
+        for ($i = 0, $j = 11, $sum = 0; $i < 10; $i++, $j--) {
+            $sum += $this->value[$i] * $j;
+        }
 
         $result = $sum % 11;
 
-        return $this->value{10} == ($result < 2 ? 0 : 11 - $result);
+        return $this->value[10] == ($result < 2 ? 0 : 11 - $result);
     }
 
     /**
@@ -62,8 +67,9 @@ class CPF extends DocumentoAbstract
      */
     public function format()
     {
-        if (!$this->isValid())
+        if (!$this->isValid()) {
             return false;
+        }
 
         // Format ###.###.###-##
         $result  = substr($this->value, 0, 3) . '.';
