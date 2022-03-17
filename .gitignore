@@ -3,3 +3,4 @@
 /.idea
 /.vscode
 /.phpunit.result.cache
+.history

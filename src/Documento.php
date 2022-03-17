@@ -7,9 +7,9 @@ class Documento extends DocumentoAbstract
     /**
      * Value to be validated
      *
-     * @var string
+     * @var DocumentoAbstract
      */
-    public $obj;
+    public DocumentoAbstract $obj;
 
     /**
      * Get document type

@@ -7,9 +7,9 @@ class CPF extends DocumentoAbstract
     /**
      * Invalid numbers
      *
-     * @var string
+     * @var array
      */
-    protected $blacklist = [
+    protected array $blacklist = [
         '00000000000',
         '11111111111',
         '22222222222',

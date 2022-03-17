@@ -1,5 +1,5 @@
 {
-    "name": "bissolli/validador-cpf-cnpj",
+    "name": "xcommerce/validador-cpf-cnpj",
     "description": "Classe em PHP para validação de CPF e CNPJ.",
     "keywords": [
         "cnpj",
@@ -19,10 +19,10 @@
         }
     ],
     "require": {
-        "php": "^7.2"
+        "php": "^7.4|^8.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^8.5"
+        "phpunit/phpunit": "^9.0"
     },
     "autoload": {
         "psr-4": {
@@ -42,5 +42,5 @@
             "vendor/bin/phpunit"
         ]
     },
-    "version": "1.2.2"
+    "version": "1.2.3"
 }
