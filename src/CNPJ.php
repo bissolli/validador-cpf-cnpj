@@ -7,9 +7,9 @@ class CNPJ extends DocumentoAbstract
     /**
      * Invalid numbers
      *
-     * @var string
+     * @var array
      */
-    protected $blacklist = [
+    protected array $blacklist = [
         '00000000000000',
         '11111111111111',
         '22222222222222',
@@ -46,7 +46,7 @@ class CNPJ extends DocumentoAbstract
         }
         $result = $sum % 11;
 
-        
+
         if ($this->value[12] != ($result < 2 ? 0 : 11 - $result)) {
             return false;
         }
@@ -57,7 +57,7 @@ class CNPJ extends DocumentoAbstract
             $j = ($j == 2) ? 9 : $j - 1;
         }
         $result = $sum % 11;
-        
+
 
         return $this->value[13] == ($result < 2 ? 0 : 11 - $result);
     }
