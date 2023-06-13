@@ -2,14 +2,18 @@
 
 namespace Bissolli\ValidadorCpfCnpj;
 
+/**
+ * Alterada por Rafael Borges com ChatGPT3,
+ * para funcionar com o PHP 8+
+ */
 class CPF extends DocumentoAbstract
 {
     /**
      * Invalid numbers
      *
-     * @var string
+     * @var string[]
      */
-    protected $blacklist = [
+    protected const BLACKLIST = [
         '00000000000',
         '11111111111',
         '22222222222',
@@ -23,24 +27,42 @@ class CPF extends DocumentoAbstract
     ];
 
     /**
+     * CPF number
+     *
+     * @var string
+     */
+    protected string $value;
+
+    /**
+     * CPF constructor.
+     *
+     * @param string $value
+     */
+    public function __construct(string $value)
+    {
+        $this->value = $value;
+    }
+
+    /**
      * Check if it is a valid CPF number
      *
-     * @return bool|string
+     * @return bool
      */
-    public function isValid()
+    public function isValid(): bool
     {
         // Check the size
-        if (strlen($this->value) != 11) {
+        if (strlen($this->value) !== 11) {
             return false;
         }
 
         // Check if it is blacklisted
-        if (in_array($this->value, $this->blacklist)) {
+        if (in_array($this->value, self::BLACKLIST, true)) {
             return false;
         }
 
         // Validate first check digit
-        for ($i = 0, $j = 10, $sum = 0; $i < 9; $i++, $j--) {
+        $sum = 0;
+        for ($i = 0, $j = 10; $i < 9; $i++, $j--) {
             $sum += $this->value[$i] * $j;
         }
 
@@ -50,8 +72,9 @@ class CPF extends DocumentoAbstract
             return false;
         }
 
-        // Validate first second digit
-        for ($i = 0, $j = 11, $sum = 0; $i < 10; $i++, $j--) {
+        // Validate second check digit
+        $sum = 0;
+        for ($i = 0, $j = 11; $i < 10; $i++, $j--) {
             $sum += $this->value[$i] * $j;
         }
 
@@ -63,7 +86,7 @@ class CPF extends DocumentoAbstract
     /**
      * Format CPF
      *
-     * @return string
+     * @return string|bool
      */
     public function format()
     {
@@ -75,7 +98,7 @@ class CPF extends DocumentoAbstract
         $result  = substr($this->value, 0, 3) . '.';
         $result .= substr($this->value, 3, 3) . '.';
         $result .= substr($this->value, 6, 3) . '-';
-        $result .= substr($this->value, 9, 2) . '';
+        $result .= substr($this->value, 9, 2);
 
         return $result;
     }
